@@ -14,6 +14,7 @@ const Trips = () => {
       queryKey: ["trips"],
       queryFn: getTrips,
       getNextPageParam: (lastPage, pages) => lastPage.next || undefined,
+      staleTime: 300 * 1000,
     })
 
   console.log(data)

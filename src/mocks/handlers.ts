@@ -4,7 +4,7 @@ import singleTripData from "./resources/single-trip.json"
 
 export const handlers = [
   rest.get("/trips", (req, res, ctx) => {
-    const reqPage = req.url.search?.replace("?", "").split("=")[1]
+    const reqPage = req.url.searchParams.get("page")!
 
     const tripsPageResults = tripsData.slice(+reqPage * 12, (+reqPage + 1) * 12)
 
@@ -19,10 +19,13 @@ export const handlers = [
       })
     )
   }),
+  rest.get("/trip/:tripId", (req, res, ctx) => {
+    const { tripId } = req.params
 
-  rest.get("/trip/:tripId'", (req, res, ctx) => {
-    // const { tripId } = req.params
+    // We could use the request param to get a specific trip, based on ID
+    const tripDetails = tripsData.find(trip => trip.id === +tripId) // eslint-disable-line
 
+    // But it is used a fixed json resource, to send the required data, considering it was provided
     return res(ctx.status(200), ctx.json(singleTripData))
   }),
 ]
