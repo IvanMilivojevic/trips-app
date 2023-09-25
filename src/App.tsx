@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import Trips from "./pages/Trips"
+import TripDetail from "./pages/TripDetail"
 
 const queryClient = new QueryClient()
 
@@ -12,7 +13,7 @@ export const App = () => {
       <QueryClientProvider client={queryClient}>
         <Routes>
           <Route path="/" element={<Trips />} />
-          {/* <Route path="/trip/:tripId" element={<TripDetail />} /> */}
+          <Route path="/trip/:tripId" element={<TripDetail />} />
         </Routes>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
