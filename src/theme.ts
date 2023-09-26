@@ -6,7 +6,7 @@ export const theme = extendTheme({
   styles: {
     global: (props: StyleFunctionProps) => ({
       body: {
-        bg: mode("#dddddd", "#000000")(props),
+        bg: mode("#eeeeee", "#000000")(props),
       },
     }),
   },

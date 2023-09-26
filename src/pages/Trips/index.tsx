@@ -27,11 +27,12 @@ const Trips = () => {
           // @ts-expect-error
           loadMore={fetchNextPage}
           hasMore={hasNextPage}
+          // Must modify package component with custom CSS because internally creates wrapping div
           className={styles.cardContainer}
         >
           {data?.pages.map(page => {
             return page.results.map((trip: TripData) => {
-              return <Card info={trip} />
+              return <Card key={trip.id} info={trip} />
             })
           })}
         </InfiniteScroll>

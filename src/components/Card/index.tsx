@@ -15,24 +15,28 @@ interface CardProps {
   info: TripData
 }
 
-const Card = ({ info }: CardProps) => {
+const Card = (props: CardProps) => {
+  const {
+    info: { photoUrl, title, countries, days, id, co2kilograms, rating },
+  } = props
+
   return (
     <ChakraCard borderRadius="16">
       <CardBody p="3">
         <Stack
-          p="6"
-          pb="0"
+          p={[4, 4, 6]}
+          pb={[0, 0, 0]}
           w="100%"
           h="100%"
           borderRadius="16"
-          bgImage={`linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(${info.photoUrl})`}
+          bgImage={`linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(${photoUrl})`}
           bgPosition="center"
           bgRepeat="no-repeat"
           align="center"
           spacing="0"
         >
           <Heading as="h3" size="md" textAlign="center" color="white" fontWeight="medium" mb="2">
-            {info.title}
+            {title}
           </Heading>
           <Text
             mt="auto"
@@ -42,12 +46,12 @@ const Card = ({ info }: CardProps) => {
             textAlign="center"
             color="white"
           >
-            {info.countries.length} {info.countries.length > 1 ? "Countries" : "Country"},{" "}
-            {info.days} {info.days > 1 ? "Days" : "Day"}
+            {countries.length} {countries.length > 1 ? "Countries" : "Country"}, {days}{" "}
+            {days > 1 ? "Days" : "Day"}
           </Text>
           <ChakraLink
             as={ReactRouterLink}
-            to={`/trip/${info.id}`}
+            to={`/trip/${id}`}
             bgColor="#1d67bf"
             color="white"
             px="4"
@@ -60,22 +64,24 @@ const Card = ({ info }: CardProps) => {
           </ChakraLink>
           <Flex
             w="100%"
+            maxW="320px"
             color="white"
             justify="space-between"
             bgColor="#000033"
             borderRadius="8px"
-            py="2"
+            py="3"
             px="4"
           >
             <Text>Emissions offset:</Text>
             <Text>
-              {+info.co2kilograms.toFixed(2)} kg C0<sub>2</sub>e
+              {+co2kilograms.toFixed(0)} kg C0<sub>2</sub>e
             </Text>
           </Flex>
           <Flex
             mt="3"
             justify="space-between"
             w="100%"
+            maxW="320px"
             bgColor="white"
             color="black"
             p="3"
@@ -83,7 +89,7 @@ const Card = ({ info }: CardProps) => {
             borderTopRightRadius="8px"
           >
             <Text fontWeight="bold">Trip rating</Text>
-            <Rating rating={info.rating} />
+            <Rating rating={rating} />
           </Flex>
         </Stack>
       </CardBody>
