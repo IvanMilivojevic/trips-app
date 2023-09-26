@@ -1,7 +1,9 @@
-import { Box, Flex } from "@chakra-ui/react"
+import { Container } from "@chakra-ui/react"
 import { useInfiniteQuery } from "@tanstack/react-query"
 import InfiniteScroll from "react-infinite-scroller"
-import { Link } from "react-router-dom"
+import Card from "../../components/Card"
+import type { TripData } from "../../types"
+import styles from "./Trips.module.css"
 
 const getTrips = async ({ pageParam = 0 }) => {
   const response = await fetch(`/trips?page=${pageParam}`)
@@ -17,31 +19,24 @@ const Trips = () => {
       staleTime: 300 * 1000,
     })
 
-  console.log(data)
-
   return (
-    <Box textAlign="center" fontSize="xl">
-      <Flex p={3} width={["100%"]} mx="auto">
-        {data?.pages?.length ? (
-          <InfiniteScroll
-            pageStart={0}
-            // @ts-expect-error
-            loadMore={fetchNextPage}
-            hasMore={hasNextPage}
-          >
-            {data?.pages.map(page => {
-              return page.results.map((trip: any) => {
-                return (
-                  <div key={trip.id}>
-                    <Link to={`/trip/${trip.id}`}>{trip.title}</Link>
-                  </div>
-                )
-              })
-            })}
-          </InfiniteScroll>
-        ) : null}
-      </Flex>
-    </Box>
+    <Container maxW="1240px" p="5">
+      {data?.pages?.length ? (
+        <InfiniteScroll
+          pageStart={0}
+          // @ts-expect-error
+          loadMore={fetchNextPage}
+          hasMore={hasNextPage}
+          className={styles.cardContainer}
+        >
+          {data?.pages.map(page => {
+            return page.results.map((trip: TripData) => {
+              return <Card info={trip} />
+            })
+          })}
+        </InfiniteScroll>
+      ) : null}
+    </Container>
   )
 }
 
