@@ -46,6 +46,7 @@ const Card = (props: CardProps) => {
             color="white"
             fontWeight="medium"
             mb="2"
+            role="heading"
           >
             {title}
           </Heading>
