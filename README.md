@@ -1,17 +1,44 @@
 This project was bootstrapped with
 [Create React App](https://github.com/facebook/create-react-app).
+It includes starting setup with [TypeScript template with preconfigured Chakra UI](https://chakra-ui.com/getting-started/cra-guide#typescript-template).
 
-## Available Scripts
+## Running the Project
 
-In the project directory, you can run:
+To install dependencies and prepare
+
+### `npm install`
+
+To run the development server:
 
 ### `npm start`
 
-Runs the app in the development mode.<br /> Open
-[http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the project.
 
-The page will reload if you make edits.<br /> You will also see any lint errors
-in the console.
+## Setup requirements, development/testing environment
+
+This configuration/setup was used for development/testing:
+
+- Windows 11
+- Node 18.18.0
+- git version 2.40.1.windows.1
+- IDE - Visual Studio Code 1.82.2
+
+Several extensions can be installed to help with development, testing and checking for errors
+
+- ESLint
+- GitLens
+- Import Cost
+- Prettier
+
+## Libraries/packages used
+
+- [MSW](https://mswjs.io/) - Mock Service Worker - Used for mocking API calls and sending back JSON response
+- [Prettier](https://prettier.io/) - Code formatting
+- [React Router](https://reactrouter.com/en/main/router-components/browser-router) - Client side routing
+- [React Query](https://tanstack.com/query/v4/docs/react/overview) - Handling server state in project
+- [React Infinite Scroller](https://github.com/danbovey/react-infinite-scroller) - Lightweight library for infinite scrolling
+
+## Additional Available Scripts
 
 ### `npm test`
 
@@ -51,7 +78,7 @@ small and middle deployments, and you shouldn’t feel obligated to use this
 feature. However we understand that this tool wouldn’t be useful if you couldn’t
 customize it when you are ready for it.
 
-## Learn More
+## Learn More About Create React App
 
 You can learn more in the
 [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).

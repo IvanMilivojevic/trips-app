@@ -9,7 +9,7 @@ export const handlers = [
 
     // Lets assume that this endpoint requires page param or returns error otherwise
     if (!requestPage) {
-      return res(ctx.status(400), ctx.json({}))
+      return res(ctx.status(400))
     }
 
     const page = +requestPage
