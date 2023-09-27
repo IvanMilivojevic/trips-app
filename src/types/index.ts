@@ -1,4 +1,4 @@
-type TripAdvantage = {
+export type TripAdvantage = {
   title: string
   description: string
 }
@@ -17,3 +17,9 @@ export type TripData = {
 }
 
 export type TripsData = TripData[]
+
+export type TripsPageSlice = {
+  count: number
+  next: number | null
+  results: TripsData
+}

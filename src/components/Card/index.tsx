@@ -35,7 +35,18 @@ const Card = (props: CardProps) => {
           align="center"
           spacing="0"
         >
-          <Heading as="h3" size="md" textAlign="center" color="white" fontWeight="medium" mb="2">
+          <Heading
+            as="h3"
+            size="md"
+            display="flex"
+            alignItems="flex-end"
+            justifyContent="center"
+            minH="50px"
+            textAlign="center"
+            color="white"
+            fontWeight="medium"
+            mb="2"
+          >
             {title}
           </Heading>
           <Text
@@ -74,7 +85,7 @@ const Card = (props: CardProps) => {
           >
             <Text>Emissions offset:</Text>
             <Text>
-              {+co2kilograms.toFixed(0)} kg C0<sub>2</sub>e
+              {co2kilograms.toFixed(0)} kg C0<sub>2</sub>e
             </Text>
           </Flex>
           <Flex
@@ -84,7 +95,7 @@ const Card = (props: CardProps) => {
             maxW="320px"
             bgColor="white"
             color="black"
-            p="3"
+            p="3.5"
             borderTopLeftRadius="8px"
             borderTopRightRadius="8px"
           >

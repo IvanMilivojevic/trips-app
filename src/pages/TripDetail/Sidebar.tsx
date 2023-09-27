@@ -13,14 +13,14 @@ const Sidebar = ({ tripData }: SidebarProps) => {
           {tripData.days} days
         </Text>
         <Text fontSize="16px" fontWeight="bold" color="gray">
-          Emissions: {+tripData.co2kilograms.toFixed(0)} kg C0<sub>2</sub>e
+          Emissions: {tripData.co2kilograms.toFixed(0)} kg C0<sub>2</sub>e
         </Text>
         <Divider borderColor="gray" my="5" />
         <Text fontSize="16px" fontWeight="bold" color="gray" mb="2">
           Countries included:
         </Text>
         <UnorderedList display="flex" flexWrap="wrap">
-          {tripData.countries.map((country: string) => {
+          {tripData.countries.map(country => {
             return (
               <ListItem key={country} width="45%">
                 {country}

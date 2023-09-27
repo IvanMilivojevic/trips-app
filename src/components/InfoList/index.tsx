@@ -1,11 +1,9 @@
 import { Card, CardBody, Container, Heading, Icon, SimpleGrid, Text } from "@chakra-ui/react"
 import { MdSettings, MdAccountBox, MdBackup, MdSettingsEthernet } from "react-icons/md"
+import type { TripAdvantage } from "../../types"
 
 interface InfoListProps {
-  content: {
-    description: string
-    title: string
-  }[]
+  content: TripAdvantage[]
 }
 
 const InfoList = ({ content }: InfoListProps) => {

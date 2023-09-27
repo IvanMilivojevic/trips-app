@@ -13,8 +13,9 @@ import { useQuery } from "@tanstack/react-query"
 import { useNavigate, useParams } from "react-router-dom"
 import InfoList from "../../components/InfoList"
 import Sidebar from "./Sidebar"
+import type { TripData } from "../../types"
 
-const getTrip = async (id?: string) => {
+const getTrip = async (id: string = ""): Promise<TripData> => {
   const response = await fetch(`/trip/${id}`)
   return await response.json()
 }
